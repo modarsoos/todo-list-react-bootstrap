@@ -1,8 +1,9 @@
+import React from 'react';
 import { useRef, useState } from 'react';
 import './App.css';
-// import { FaBeer } from 'react-icons/fa';
-// import Button from 'react-bootstrap/Button';
-// import { Button, Form } from "react-bootstrap";
+import { FcCancel } from "react-icons/fc";
+import { FcPlus } from "react-icons/fc";
+
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -11,11 +12,11 @@ function App() {
   // Add buttun Function
   const handleAddTodo = () => {
     const inputValue = inputRef.current.value.trim(); // Remove spaces from the beginning and end of the text
-  
+
     if (inputValue !== "") {
       const newItem = { completed: false, text: inputValue };
       setTodos([...todos, newItem]);
-    // call function to clear form after add a note
+      // call function to clear form after add a note
       handleClearTodo();
     }
   }
@@ -40,6 +41,12 @@ function App() {
     }
   }
 
+  const handleDeleteNote = (index) => {
+    const newTodos = [...todos]
+    newTodos.splice(index, 1)
+    setTodos(newTodos)
+  }
+
   // functions to edit the list
   // if (todos.length === 5) {
   //   todos.unshift('you reached the 5 element')
@@ -52,25 +59,37 @@ function App() {
   // }
 
   return (
-    <div className='container'>
-      <div className="App">
-        <h2 className='title text-center'>Modar Todo-List <span role="img" aria-label="tada">🎉</span> </h2>
+    <div className='container '>
+      <div className="App ">
+        <nav className='navbar-text text-center text-white sticky-top navbar-dark bg-info rounded mt-3'>Modar Todo-List
 
-        <div className='to-do-container mb-3' >
+        </nav>
+
+        <div className='to-do-container mb-3 mt-3' >
           <ul className='list-group'>
             {todos.map(({ text, completed }, index) => {
-              return <li
-                className={`list-group-item ${completed ? 'text-decoration-line-through font-monospace text-muted' : ''}`}
-                onClick={() => handleItemDone(index)}
-                key={index}>{text}
-              </li>
+              return <div className="container">
+                <div className="row justify-content-between">
+                  <div className="col-11 rounded">
+                    <li
+                      className={`list-group-item ${completed ? 'text-truncate text-decoration-line-through font-monospace text-muted' : 'text-success'}`}
+                      onClick={() => handleItemDone(index)}
+                      key={index}>{text}
+                    </li>
+                  </div>
+                  <div className="col">
+                    <span className='deleteNote ' data-toggle="tooltip" data-placement="top" title="delete this note" onClick={() => handleDeleteNote(index)}><FcCancel /></span>
+                  </div>
+
+                </div>
+              </div>
 
             })}
           </ul>
         </div>
 
         <div className="input-group flex-nowrap input-group-lg mb-3">
-          <span className="input-group-text" id="addon-wrapping">✏️</span>
+          <span className="input-group-text" id="addon-wrapping"><FcPlus /></span>
           <input type="text" className='form-control' ref={inputRef} placeholder="Add new item..." aria-label="notes" aria-describedby="addon-wrapping"></input>
         </div>
 

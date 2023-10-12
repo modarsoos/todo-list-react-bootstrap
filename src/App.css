@@ -1,10 +1,10 @@
-.App {
+/* .App { */
   /* color: #135b7c; */
-  border: 2px solid rgb(0, 138, 180);
-  border-radius: 20px;
-  margin: 20px;
-  padding: 20px;
-}
+  /* border: 2px solid rgb(0, 138, 180); */
+  /* border-radius: 20px; */
+  /* margin: 20px; */
+  /* padding: 20px; */
+/* } */
 
 .todos-length {
   text-align: start;
@@ -41,9 +41,9 @@
   list-style-type: armenian;
 }  
 
-.done {
-  /* background-color: red; */
-  text-decoration: line-through;
-  font-weight: 100;
-  color: red;
+.deleteNote {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
