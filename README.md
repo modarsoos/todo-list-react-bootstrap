@@ -2,8 +2,8 @@
 
 <p align="center">
 <img src=01.png>
-![Screenshot](02.png)
-![Screenshot](03.png)
+<img src=02.png>
+<img src=03.png>
 </p>
 ## الإصدار 1.0.0 - إصدار "مدير المهام"
 
