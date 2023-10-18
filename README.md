@@ -1,7 +1,7 @@
 # تطبيق قائمة المهام باستخدام React و Bootstrap
 ![Screenshot](01.png)
-![Screenshot](01.png)
-![Screenshot](01.png)
+![Screenshot](02.png)
+![Screenshot](03.png)
 
 ## الإصدار 1.0.0 - إصدار "مدير المهام"
 
